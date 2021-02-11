@@ -40,12 +40,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   drawerColor:{
-    background: " rgba(98, 5, 167, 0.95 )",
-    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-    backdropFilter: "blur( 4px )",
-    webkitBackdropFilter: "blur( 4px )", 
-    borderRadius: "10px",
-    border: "1px solid rgba( 255, 255, 255, 0.18 )",
+    background:"#231C55",
+    // background: "linear-gradient(45deg, rgba(67,59,200,1) 0%, rgba(23,6,122,1) 49%, rgba(21,110,144,1) 100%);",
+    // backgroundImage: "linear-gradient(to right top, #160f30, #19123a, #1c1544, #1f174f, #221a5a, #231d62, #242069, #252371, #242677, #242a7d, #222d83, #203189)",
     color:"#fff"
  },
   appBar: {
@@ -109,9 +106,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
   },
 }));
-
-export default function PermanentDrawerLeft(props) {
+ function PermanentDrawerLeft(props) {
     const {history} = props;
+   console.log(props)
     const classes = useStyles();
     const itemList = [
         {
@@ -122,56 +119,62 @@ export default function PermanentDrawerLeft(props) {
         {
             text:"Registration",
             icon:<FormatListBulletedIcon/>,
-            onClick: () => history.push("/projects")
+            onClick: () => history.push("/register")
         },
         {
             text:"Transactions(Receipts)",
             icon:<ReceiptIcon/>,
-            onClick: () => history.push("/units")
+            onClick: () => history.push("/transactions")
         },
         {
             text:"Project Module",
             icon:<GroupIcon/>,
-            onClick: () => history.push("/labour")
-        },{
+            onClick: () => history.push("/projects")
+        },
+        {
+          text:"Sales",
+          icon:<ReceiptIcon/>,
+          onClick: () => history.push("/sales")
+      },
+      {
           text:"Accounting Management",
           icon:<AccountBalanceIcon/>,
-          onClick: () => history.push("/material")
+          onClick: () => history.push("/accounts")
         },
         {
             text:"Staff",
             icon:<PeopleIcon/>,
-            onClick: () => history.push("/material")  
+            onClick: () => history.push("/staff")  
         }
     ]
     const itemList2=[
         {
             text:"Agents Profile",
           icon:<PersonIcon/>,
-          onClick: () => history.push("/material")
+          onClick: () => history.push("/agents")
         },
     
         {
             text:"Customer Statements",
             icon:<AssessmentIcon />,
-            onClick: () => history.push("/material")
+            onClick: () => history.push("/reports")
           },
           {
               text:"Project Report",
             icon:<AssessmentIcon />,
-            onClick: () => history.push("/material")
+            onClick: () => history.push("/reports")
           },
           {
            text:"Sales report",
             icon:<AssessmentIcon />,
-            onClick: () => history.push("/material")
+            onClick: () => history.push("/reports")
           }
     ]
     
     return (
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar position="fixed" className={classes.appBar} classes={{root:classes.drawerColor}}>
+        <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Grid container alignItems="center">
                         <Grid item  >
@@ -237,3 +240,4 @@ export default function PermanentDrawerLeft(props) {
       </div>
     );
   }
+  export default withRouter (PermanentDrawerLeft)
