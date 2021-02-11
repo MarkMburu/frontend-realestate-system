@@ -40,10 +40,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   drawerColor:{
-    background:"#231C55",
-    // background: "linear-gradient(45deg, rgba(67,59,200,1) 0%, rgba(23,6,122,1) 49%, rgba(21,110,144,1) 100%);",
-    // backgroundImage: "linear-gradient(to right top, #160f30, #19123a, #1c1544, #1f174f, #221a5a, #231d62, #242069, #252371, #242677, #242a7d, #222d83, #203189)",
-    color:"#fff"
+    background:"#145214",
+    color: "#000"
  },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -174,7 +172,7 @@ const useStyles = makeStyles((theme) => ({
     return (
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar position="fixed" className={classes.appBar}>
+        <AppBar position="fixed" className={classes.appBar,classes.drawerColor}>
         <Toolbar>
           <Grid container alignItems="center">
                         <Grid item  >
@@ -207,7 +205,7 @@ const useStyles = makeStyles((theme) => ({
           variant="permanent"
           classes={{
             paper: classes.drawerPaper,
-            paper: classes.drawerColor
+            
           }}
           anchor="left"
         >

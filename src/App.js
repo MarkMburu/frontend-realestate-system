@@ -15,20 +15,20 @@ import PermanentDrawerLeft from "./components/Drawer";
 
 const useStyles = makeStyles(theme =>({
   container:{
-    display:"flex"
+    display:"flex",
+   
   },
   content: {
     width:"100%",
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(5),
-    margin:theme.spacing(4)
+    padding: theme.spacing(4),
+    margin:theme.spacing(3)
   },
 }))
 
 const theme = createMuiTheme({
   palette:{
     primary:{
-      main:"#333996",
+      main:"#145214",
       light:"#3c44b126"
     },
     secondary:{
@@ -36,7 +36,7 @@ const theme = createMuiTheme({
       light:"#f8324526"
     },
     background:{
-      default: "#f4f5fd"
+      default:"#f4f5fd"
     },
     shape:{
       borderRadius: '12px'
@@ -61,10 +61,11 @@ function App() {
   return (
     <>
     <ThemeProvider theme={theme}>
+    <div className={classess.container}>
     <Router>
     <PermanentDrawerLeft/>
       <Switch>
-        <div className={classess.container}>
+        <div className={classess.content}>
       <Route path="/" component={Dashboard}/>
         <Route path="/dashboard" component={Dashboard}/>
         <Route  path="/register" component={Registration}/>
@@ -79,6 +80,7 @@ function App() {
         </div>
         </Switch>
     </Router>
+    </div>
     </ThemeProvider>
     
     </>
